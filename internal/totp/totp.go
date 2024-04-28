@@ -16,7 +16,7 @@ func Run(secret string, time int64) {
 	var counter int64 = time / TimeStep
 	key, err := base32.StdEncoding.DecodeString(secret)
 	if err != nil {
-		fmt.Println("Error decoding secret!")
+		fmt.Println("Error decoding secret!", err)
 		return
 	}
 	hmacResult := getHmacHash(key, counter)
